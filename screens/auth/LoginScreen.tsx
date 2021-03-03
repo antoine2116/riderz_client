@@ -4,7 +4,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StyleSheet,View,Button,TextInput,TouchableOpacity,Text} from "react-native";
 import Navigation from '../../navigation';
 
-export default function LoginScreen() {
+// @ts-ignore
+export default function LoginScreen({ navigation }) {
 
 
 
@@ -39,6 +40,7 @@ export default function LoginScreen() {
     console.log(password);
     if (user == 't' && password == 't'){
       console.log('connecté');
+      navigation.navigate('Home');
     }else{
       console.log('mauvais mdp');
     }
@@ -68,6 +70,7 @@ export default function LoginScreen() {
         <TouchableOpacity
           style={[styles.textinput, styles.buttonValide]}
           onPress={() => _connexion()}
+
         >
           <Text style={styles.textButton}>Se connecter</Text>
         </TouchableOpacity>
