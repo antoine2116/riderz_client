@@ -5,7 +5,7 @@ import { StyleSheet,View,Button,TextInput,TouchableOpacity,Text} from "react-nat
 import Navigation from '../../navigation';
 
 // @ts-ignore
-export default function LoginScreen({ navigation }) {
+export default function RegisterScreen({ navigation }) {
 
 
 
@@ -27,42 +27,23 @@ export default function LoginScreen({ navigation }) {
   }
 
 
-  function _mdpOublie() {
-    console.log('mot de passe oublié !');
-
-  }
-
-
   function _connexion() {
-    var user = state.username;
-    var password = state.password;
-    console.log(user);
-    console.log(password);
-   // if (user == 't' && password == 't'){
-      console.log('connecté');
-      navigation.navigate('Home');
-    //}else{
-      //console.log('mauvais mdp');
-   // }
-  }
 
-  function _register() {
-    navigation.navigate('Register');
   }
 
 
   return (
     <View style={styles.main_container}>
       <View style={styles.viewInputs}>
-        <Text style={styles.textLogin}>Adresse mail</Text>
-        <TextInput onChangeText={(text) => _userLog(text)} style={styles.textinput} placeholder='...'/>
+        <Text style={styles.textLogin}>Nom</Text>
+        <TextInput onChangeText={(Nom) => _userLog(Nom)} style={styles.textinput} placeholder='...'/>
+        <Text style={styles.textLogin}>Prénom</Text>
+        <TextInput onChangeText={(Prenom) => _userLog(Prenom)} style={styles.textinput} placeholder='...'/>
+        <Text style={styles.textLogin}>Email</Text>
+        <TextInput onChangeText={(Email) => _userLog(Email)} style={styles.textinput} placeholder='...'/>
         <Text style={styles.textLogin}>Mot de passe</Text>
         <TextInput onChangeText={(text) => _passwordLog(text)} style={styles.textinput} placeholder='...'/>
-        <TouchableOpacity
-          onPress={_mdpOublie}
-        >
-          <Text style={styles.textOublie}>Mot de passe oublié ?</Text>
-        </TouchableOpacity>
+
       </View>
       <View style={{flex : 2}}>
         <Text style={[styles.text]}>En utilisant RiderZ vous confirmez être en accord avec nos
@@ -73,16 +54,11 @@ export default function LoginScreen({ navigation }) {
 
         <TouchableOpacity
           style={[styles.textinput, styles.buttonValide]}
-          onPress={() => _connexion()} >
+          onPress={() => _connexion()}
+
+        >
           <Text style={styles.textButton}>Se connecter</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[styles.textinput, styles.buttonValide]}
-          onPress={() => _register()}>
-          <Text style={styles.textButton}>S'inscire</Text>
-        </TouchableOpacity>
-
       </View>
     </View>
 
@@ -134,7 +110,6 @@ const styles = StyleSheet.create({
   },
   text : {
     fontSize: 11,
-    textAlign : "center",
   },
   textUnderLine : {
     textDecorationLine: 'underline',
