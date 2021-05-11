@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StyleSheet,View,Button,TextInput,TouchableOpacity,Text} from "react-native";
-import Navigation from '../../navigation';
+import Navigation from '../../../MSPR DEV/GoStyle/GoStyle/navigation';
 
 // @ts-ignore
 export default function LoginScreen({ navigation }) {
@@ -40,7 +40,7 @@ export default function LoginScreen({ navigation }) {
     console.log(password);
    // if (user == 't' && password == 't'){
       console.log('connecté');
-      navigation.navigate('Home');
+      navigation.navigate('HomeNav');
     //}else{
       //console.log('mauvais mdp');
    // }
