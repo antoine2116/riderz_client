@@ -2,7 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StyleSheet,View,Button,TextInput,TouchableOpacity,Text} from "react-native";
-import Navigation from '../../../MSPR DEV/GoStyle/GoStyle/navigation';
 
 // @ts-ignore
 export default function LoginScreen({ navigation }) {
@@ -50,6 +49,13 @@ export default function LoginScreen({ navigation }) {
     navigation.navigate('Register');
   }
 
+  function _condition(){
+    navigation.navigate('Condition');
+  }
+
+  function _politique(){
+    navigation.navigate('Politique');
+  }
 
   return (
     <View style={styles.main_container}>
@@ -66,9 +72,9 @@ export default function LoginScreen({ navigation }) {
       </View>
       <View style={{flex : 2}}>
         <Text style={[styles.text]}>En utilisant RiderZ vous confirmez être en accord avec nos
-          <Text style={[styles.textUnderLine]}> conditions d’utilisation</Text>
-          et notre
-          <Text style={[styles.textUnderLine]}> politique de confidentialité</Text>
+          <Text style={[styles.textUnderLine]} onPress={() => _condition()}> conditions d’utilisation </Text>
+           et notre
+          <Text style={[styles.textUnderLine]} onPress={() => _politique()}> politique de confidentialité</Text>
         </Text>
 
         <TouchableOpacity

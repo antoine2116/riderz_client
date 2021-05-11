@@ -2,19 +2,16 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StyleSheet,View,Button,TextInput,TouchableOpacity,Text} from "react-native";
-import Navigation from '../../../MSPR DEV/GoStyle/GoStyle/navigation';
+
 
 // @ts-ignore
 export default function RegisterScreen({ navigation }) {
-
-
 
 
   let state = {
     username: '',
     password: ''
   }
-
 
 
   function _userLog(user: any) {
@@ -27,8 +24,16 @@ export default function RegisterScreen({ navigation }) {
   }
 
 
-  function _connexion() {
+  function _register() {
+    navigation.navigate('Login');
+  }
 
+  function _condition(){
+    navigation.navigate('Condition');
+  }
+
+  function _politique(){
+    navigation.navigate('Politique');
   }
 
 
@@ -47,17 +52,17 @@ export default function RegisterScreen({ navigation }) {
       </View>
       <View style={{flex : 2}}>
         <Text style={[styles.text]}>En utilisant RiderZ vous confirmez être en accord avec nos
-          <Text style={[styles.textUnderLine]}> conditions d’utilisation</Text>
+          <Text style={[styles.textUnderLine]} onPress={() => _condition()}> conditions d’utilisation </Text>
           et notre
-          <Text style={[styles.textUnderLine]}> politique de confidentialité</Text>
+          <Text style={[styles.textUnderLine]} onPress={() => _politique()}> politique de confidentialité</Text>
         </Text>
 
         <TouchableOpacity
           style={[styles.textinput, styles.buttonValide]}
-          onPress={() => _connexion()}
+          onPress={() => -_register()}
 
         >
-          <Text style={styles.textButton}>Se connecter</Text>
+          <Text style={styles.textButton}>S'enregistrer</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -110,6 +115,7 @@ const styles = StyleSheet.create({
   },
   text : {
     fontSize: 11,
+    textAlign : "center",
   },
   textUnderLine : {
     textDecorationLine: 'underline',
